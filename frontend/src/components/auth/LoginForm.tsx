@@ -29,12 +29,7 @@ export default function LoginForm({
     register,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<LoginInputs>({
-    defaultValues: {
-      phone_number1: "01010000001",
-      password: "Test@1234",
-    },
-  });
+  } = useForm<LoginInputs>();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
@@ -57,7 +52,7 @@ export default function LoginForm({
       return;
     }
 
-    let errMssg = "";
+    let errMssg: string;
 
     switch (res?.status) {
       case 401: {
